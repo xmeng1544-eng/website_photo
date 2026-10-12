@@ -12,7 +12,8 @@
     a{color:var(--accent);text-decoration:none}
     a:hover{text-decoration:underline}
     .container{max-width:930px;margin:38px auto 70px;padding:0 22px}
-    .back{display:inline-block;margin-bottom:22px;font-size:14px}
+    .back{display:inline-flex;align-items:center;gap:8px;margin-bottom:22px;padding:9px 15px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--accent);font-size:14px;font-weight:600;cursor:pointer}
+    .back:hover{background:#eef4ff;text-decoration:none}
     .paper{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 32px rgba(30,46,70,.04);padding:44px 54px}
     .header{display:flex;align-items:center;gap:34px;padding-bottom:34px;border-bottom:1px solid var(--line)}
     .portrait{width:174px;height:174px;flex:0 0 174px;object-fit:cover;border-radius:9px;background:#e8edf3}
@@ -33,7 +34,7 @@
 </head>
 <body>
   <main class="container">
-    <div class="back">Ren Lab · Researcher Profile</div>
+    <a class="back" href="#" id="back-to-team">← Back to Team / 返回团队页面</a>
     <article class="paper">
       <header class="header">
         <img class="portrait" src="https://cdn.jsdelivr.net/gh/xmeng1544-eng/website_photo/minghui.jpg?v=2" alt="范明惠 Minghui Fan" />
@@ -68,5 +69,15 @@
       </section>
     </article>
   </main>
+  <script>
+    document.getElementById('back-to-team').addEventListener('click', function(event) {
+      event.preventDefault();
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        alert('请从实验室官方网站的 Team 页面点击 Minghui Fan 进入此页，然后即可使用返回按钮。若直接打开本页，请使用浏览器历史记录返回。');
+      }
+    });
+  </script>
 </body>
 </html>
